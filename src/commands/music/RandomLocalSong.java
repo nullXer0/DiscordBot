@@ -30,8 +30,10 @@ public class RandomLocalSong extends MusicCommand implements MusicCommandInterfa
 	public RandomLocalSong()
 	{
 		name = "randomSong";
+		cooldown = 10;
+		arguments = "[count]";
 
-		help = "Queues a random song from the bots local directory";
+		help = "Queues up to 10 random songs from the bots local directory";
 
 		musicDirectory = new File("music");
 		if(!musicDirectory.exists() || !musicDirectory.isDirectory())
@@ -40,22 +42,38 @@ public class RandomLocalSong extends MusicCommand implements MusicCommandInterfa
 		}
 	}
 
+	//TODO: find out who the command sometimes fails
 	public void requirementsMet(CommandEvent event, GuildMusicManager musicManager)
 	{
 		File chosenDirectory;
 		File chosenSong;
+		int count = 1;
 
-		logger.info("{} Queued a random song", event.getAuthor().getName());
-
-		chosenDirectory = getRandomDirectory(musicDirectory);
-		if(chosenDirectory != null)
+		if(!event.getArgs().equals(""))
 		{
-			logger.info("Chosen directory: {}", chosenDirectory.getName());
-			chosenSong = getRandomSong(chosenDirectory);
-			if(chosenSong != null)
+			try
 			{
-				logger.info("Chosen song: {}", chosenSong.getName());
-				Bot.getPlayerManager().loadItem(chosenSong.getAbsolutePath(), new SongQueueHandler(event));
+				count = Math.min(Integer.valueOf(event.getArgs().split(" ")[0]), 10);
+			}
+			catch(NumberFormatException e)
+			{
+			}
+		}
+
+		logger.info("{} Queued {} random song(s)", event.getAuthor().getName(), count);
+
+		for(int i = 0; i < count; i++)
+		{
+			chosenDirectory = getRandomDirectory(musicDirectory);
+			if(chosenDirectory != null)
+			{
+				logger.info("Chosen directory: {}", chosenDirectory.getName());
+				chosenSong = getRandomSong(chosenDirectory);
+				if(chosenSong != null)
+				{
+					logger.info("Chosen song: {}", chosenSong.getName());
+					Bot.getPlayerManager().loadItem(chosenSong.getAbsolutePath(), new SongQueueHandler(event));
+				}
 			}
 		}
 	}

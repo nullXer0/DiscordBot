@@ -22,9 +22,17 @@ public class SongQueueHandler implements AudioLoadResultHandler
 
 	public void trackLoaded(AudioTrack track)
 	{
+		GuildMusicManager manager = Bot.getMusicManager(event.getGuild());
 		logger.info("Given link is a song");
-		Bot.getMusicManager(event.getGuild()).scheduler.queue(track);
-		event.reply("Playing: "+track.getInfo().title + " - " + track.getInfo().author);
+		manager.scheduler.queue(track);
+		if(manager.player.getPlayingTrack() == null)
+		{
+			event.reply("Playing: " + track.getInfo().title + " - " + track.getInfo().author);
+		}
+		else
+		{
+			event.reply("Queued: " + track.getInfo().title + " - " + track.getInfo().author);
+		}
 	}
 
 	public void playlistLoaded(AudioPlaylist playlist)
