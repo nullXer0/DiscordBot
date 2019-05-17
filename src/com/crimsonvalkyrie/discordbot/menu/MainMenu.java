@@ -15,11 +15,11 @@ import java.util.List;
 
 public class MainMenu extends MenuBase
 {
-	private static Font FONT = new Font("Dialog", Font.ITALIC, 24);
+	private static final Font FONT = new Font("Dialog", Font.ITALIC, 24);
 
-	HashMap<MenuButton, Guild> guilds = new HashMap<>();
+	final HashMap<MenuButton, Guild> guilds = new HashMap<>();
 
-	private static Logger logger = Main.getLogger();
+	private static final Logger logger = Main.getLogger();
 
 	public MainMenu(List<Guild> guilds)
 	{

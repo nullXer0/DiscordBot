@@ -15,9 +15,9 @@ import java.util.List;
 
 public class BotCommandListener implements CommandListener
 {
-	private static List<MessageFrame> frames = new ArrayList<>();
+	private static final List<MessageFrame> frames = new ArrayList<>();
 
-	private static Logger logger = Main.getLogger();
+	private static final Logger logger = Main.getLogger();
 
 	public void add(MessageFrame panel)
 	{

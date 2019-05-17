@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 
 public class MenuButton extends JPanel
 {
-	private JLabel label;
+	private final JLabel label;
 	private BufferedImage originalImage;
 
 	private boolean hasImage = false;
@@ -28,12 +28,7 @@ public class MenuButton extends JPanel
 	public MenuButton(Color bg, BufferedImage image)
 	{
 		this(bg);
-		hasImage = true;
-	}
-
-	public void paintComponent(Graphics2D g)
-	{
-		super.paintComponent(g);
+		setImage(image);
 	}
 
 	public void setText(String text)
