@@ -15,8 +15,16 @@ import org.apache.logging.log4j.Logger;
 
 import javax.imageio.ImageIO;
 import javax.security.auth.login.LoginException;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+import java.awt.AWTException;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
+import java.awt.SystemTray;
+import java.awt.TrayIcon;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
