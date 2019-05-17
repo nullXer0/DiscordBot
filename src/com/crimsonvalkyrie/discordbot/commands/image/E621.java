@@ -9,7 +9,7 @@ import org.json.JSONPointerException;
 
 public class E621 extends Command
 {
-	GetRequest request = Unirest.get("https://e621.net/post/index.json")
+	final GetRequest request = Unirest.get("https://e621.net/post/index.json")
 			.header(HeaderNames.USER_AGENT, "FurryBoy/1.0 (admin@crimsonvalkyrie.com)")
 			.queryString("limit", 1);
 
