@@ -1,10 +1,10 @@
 package com.crimsonvalkyrie.discordbot.commands.music;
 
-import com.jagrosh.jdautilities.command.CommandEvent;
 import com.crimsonvalkyrie.discordbot.main.Bot;
 import com.crimsonvalkyrie.discordbot.main.Main;
 import com.crimsonvalkyrie.discordbot.misc.music.GuildMusicManager;
 import com.crimsonvalkyrie.discordbot.misc.music.SongQueueHandler;
+import com.jagrosh.jdautilities.command.CommandEvent;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
@@ -12,20 +12,20 @@ import java.io.FileFilter;
 import java.io.FilenameFilter;
 import java.util.Random;
 
-public class RandomLocalSong extends MusicCommand implements MusicCommandInterface
+public class RandomLocalSong extends MusicCommand
 {
-	private static FileFilter directoryFilter = File::isDirectory;
+	private static final FileFilter directoryFilter = File::isDirectory;
 
-	private static FilenameFilter songFilter = (dir, name) -> name.toLowerCase().endsWith(".flac")
+	private static final FilenameFilter songFilter = (dir, name) -> name.toLowerCase().endsWith(".flac")
 			|| name.toLowerCase().endsWith(".mp3")
 			|| name.toLowerCase().endsWith(".wav")
 			|| name.toLowerCase().endsWith(".m4a");
 
-	private static Random rand = new Random();
+	private static final Random rand = new Random();
 
 	private static File musicDirectory;
 
-	private static Logger logger = Main.getLogger();
+	private static final Logger logger = Main.getLogger();
 
 	public RandomLocalSong()
 	{
@@ -55,7 +55,7 @@ public class RandomLocalSong extends MusicCommand implements MusicCommandInterfa
 			{
 				count = Math.min(Integer.valueOf(event.getArgs().split(" ")[0]), 10);
 			}
-			catch(NumberFormatException e)
+			catch(NumberFormatException ignored)
 			{
 			}
 		}

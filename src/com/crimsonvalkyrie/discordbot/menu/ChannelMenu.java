@@ -11,9 +11,9 @@ import java.util.List;
 
 public class ChannelMenu extends MenuBase
 {
-	HashMap<MenuButton, TextChannel> channels = new HashMap<>();
+	final HashMap<MenuButton, TextChannel> channels = new HashMap<>();
 
-	MenuButton backButton;
+	final MenuButton backButton;
 
 	public ChannelMenu(List<TextChannel> channels)
 	{

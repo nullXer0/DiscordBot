@@ -10,10 +10,10 @@ import java.awt.event.ActionListener;
 
 public class MessageFrame extends JFrame implements ActionListener
 {
-	JScrollPane scrollPane;
-	JScrollBar scrollBar;
-	MessagePanel messagePanel;
-	JTextField textField;
+	final JScrollPane scrollPane;
+	final JScrollBar scrollBar;
+	final MessagePanel messagePanel;
+	final JTextField textField;
 
 	public MessageFrame(MessagePanel mPanel)
 	{

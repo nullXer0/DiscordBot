@@ -1,15 +1,15 @@
 package com.crimsonvalkyrie.discordbot.commands.music;
 
-import com.jagrosh.jdautilities.command.Command;
-import com.jagrosh.jdautilities.command.CommandEvent;
 import com.crimsonvalkyrie.discordbot.main.Bot;
 import com.crimsonvalkyrie.discordbot.misc.music.GuildMusicManager;
+import com.jagrosh.jdautilities.command.Command;
+import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.core.entities.VoiceChannel;
 
-public abstract class MusicCommand extends Command implements MusicCommandInterface
+public abstract class MusicCommand extends Command
 {
 	protected boolean ignoreUserChannelRequirements = false;
-	protected boolean ignoreAllRequirements = false;
+	protected final boolean ignoreAllRequirements = false;
 
 	MusicCommand()
 	{
@@ -28,11 +28,11 @@ public abstract class MusicCommand extends Command implements MusicCommandInterf
 		}
 		else if((!ignoreAllRequirements || !ignoreUserChannelRequirements) && userVoiceChannel == null)
 		{
-			userNotInChannel(event, musicManager);
+			userNotInChannel(event);
 		}
 		else if((!ignoreAllRequirements || !ignoreUserChannelRequirements) && userVoiceChannel != botVoiceChannel)
 		{
-			userDoesNotShareChannel(event, musicManager);
+			userDoesNotShareChannel(event);
 		}
 		else
 		{
@@ -45,12 +45,12 @@ public abstract class MusicCommand extends Command implements MusicCommandInterf
 		event.reply("I need to be in a channel to do that");
 	}
 
-	public void userNotInChannel(CommandEvent event, GuildMusicManager musicManager)
+	public void userNotInChannel(CommandEvent event)
 	{
 		event.reply("You have to be in the same channel as the bot to do that");
 	}
 
-	public void userDoesNotShareChannel(CommandEvent event, GuildMusicManager musicManager)
+	public void userDoesNotShareChannel(CommandEvent event)
 	{
 		event.reply("You have to be in the same channel as the bot to do that");
 	}

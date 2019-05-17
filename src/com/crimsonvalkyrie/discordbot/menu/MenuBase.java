@@ -14,13 +14,13 @@ import java.util.List;
 
 public class MenuBase extends JScrollPane implements ComponentListener, MouseListener
 {
-	protected JPanel panel = new JPanel();
+	protected final JPanel panel = new JPanel();
 
-	private List<MenuButton> buttons = new ArrayList<>();
+	private final List<MenuButton> buttons = new ArrayList<>();
 
 	private boolean isClick;
 
-	private static Logger logger = Main.getLogger();
+	private static final Logger logger = Main.getLogger();
 
 	public MenuBase()
 	{

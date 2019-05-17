@@ -1,15 +1,15 @@
 package com.crimsonvalkyrie.discordbot.commands.music;
 
-import com.jagrosh.jdautilities.command.CommandEvent;
 import com.crimsonvalkyrie.discordbot.main.Bot;
 import com.crimsonvalkyrie.discordbot.main.Main;
 import com.crimsonvalkyrie.discordbot.misc.music.GuildMusicManager;
 import com.crimsonvalkyrie.discordbot.misc.music.SongQueueHandler;
+import com.jagrosh.jdautilities.command.CommandEvent;
 import org.apache.logging.log4j.Logger;
 
-public class Queue extends MusicCommand implements MusicCommandInterface
+public class Queue extends MusicCommand
 {
-	private static Logger logger = Main.getLogger();
+	private static final Logger logger = Main.getLogger();
 
 	public Queue()
 	{

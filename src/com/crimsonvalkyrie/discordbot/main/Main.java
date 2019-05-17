@@ -29,34 +29,32 @@ public class Main
 {
 	// Frames and panels
 	private static JFrame frame;
-	private static JPanel panel = new JPanel();
+	private static final JPanel panel = new JPanel();
 	private static MenuBase mainMenu;
 
 	// Tray and window icon
 	private static BufferedImage icon;
 
 	// System Tray stuff
-	private static TrayListener trayListener = new TrayListener();
+	private static final TrayListener trayListener = new TrayListener();
 
 	// JScrollPane stuff
-	private static PanelListener pListener = new PanelListener();
+	private static final PanelListener pListener = new PanelListener();
 	private static MenuBase activePane;
 
 	// Guilds, TextChannels and MessageFrames
-	private static HashMap<String, Guild> guilds = new HashMap<>();
-	private static HashMap<Guild, TextChannel> channels = new HashMap<>();
-	private static HashMap<Guild, MenuBase> channelMenus = new HashMap<>();
-	private static HashMap<TextChannel, MessagePanel> messagePanels = new HashMap<>();
-	private static HashMap<MessagePanel, MessageFrame> frames = new HashMap<>();
+	private static final HashMap<Guild, MenuBase> channelMenus = new HashMap<>();
+	private static final HashMap<TextChannel, MessagePanel> messagePanels = new HashMap<>();
+	private static final HashMap<MessagePanel, MessageFrame> frames = new HashMap<>();
 
 	// Config file
-	private static Properties config = new Properties();
+	private static final Properties config = new Properties();
 
 	// Bot stuff
 	private static String token = "";
 	private static String prefix = "!";
 	private static String ownerID = "";
-	private static BotCommandListener listener = new BotCommandListener();
+	private static final BotCommandListener listener = new BotCommandListener();
 
 	private static boolean nogui;
 
@@ -201,8 +199,6 @@ public class Main
 		// Get list of Guilds
 		for(Guild guild : Bot.getJDA().getGuilds())
 		{
-			guilds.put(guild.getId(), guild);
-
 			// Create Channel Menus
 			channelMenus.put(guild, new ChannelMenu(guild.getTextChannels()));
 			channelMenus.get(guild).setVerticalScrollBar(new JScrollBar());
@@ -212,8 +208,6 @@ public class Main
 			// Get list of TextChannels
 			for(TextChannel channel : guild.getTextChannels())
 			{
-				channels.put(guild, channel);
-
 				// Create MessageFrames for each TextChannel
 				MessagePanel mPanel = new MessagePanel(channel);
 				MessageFrame mFrame = new MessageFrame(mPanel);

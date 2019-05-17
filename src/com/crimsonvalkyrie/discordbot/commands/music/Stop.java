@@ -1,9 +1,9 @@
 package com.crimsonvalkyrie.discordbot.commands.music;
 
-import com.jagrosh.jdautilities.command.CommandEvent;
 import com.crimsonvalkyrie.discordbot.misc.music.GuildMusicManager;
+import com.jagrosh.jdautilities.command.CommandEvent;
 
-public class Stop extends MusicCommand implements MusicCommandInterface
+public class Stop extends MusicCommand
 {
 	public Stop()
 	{

@@ -10,15 +10,15 @@ import javax.swing.*;
 
 public class MessagePanel extends JPanel
 {
-	private LC layoutConstraints = new LC().bottomToTop().fillX().noVisualPadding().insets("0", "0", "0", "0").gridGap("0", "0");
-	private AC columnConstraints = new AC().fill();
-	private MigLayout migLayout = new MigLayout(layoutConstraints, columnConstraints);
 
-	private MessageBox[] messages = new MessageBox[50];
-	private TextChannel channel;
+	private final MessageBox[] messages = new MessageBox[50];
+	private final TextChannel channel;
 
 	public MessagePanel(TextChannel channel)
 	{
+		AC columnConstraints = new AC().fill();
+		LC layoutConstraints = new LC().bottomToTop().fillX().noVisualPadding().insets("0", "0", "0", "0").gridGap("0", "0");
+		MigLayout migLayout = new MigLayout(layoutConstraints, columnConstraints);
 		setLayout(migLayout);
 		this.channel = channel;
 	}

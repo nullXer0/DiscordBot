@@ -1,12 +1,12 @@
 package com.crimsonvalkyrie.discordbot.main;
 
 import com.crimsonvalkyrie.discordbot.commands.Commands;
+import com.crimsonvalkyrie.discordbot.misc.music.GuildMusicManager;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.command.CommandListener;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
-import com.crimsonvalkyrie.discordbot.misc.music.GuildMusicManager;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -22,10 +22,10 @@ public class Bot
 	private static JDA jda;
 
 	private static AudioPlayerManager playerManager;
-	private static HashMap<Guild, AudioManager> audioManagers = new HashMap<>();
-	private static HashMap<Guild, GuildMusicManager> musicManagers = new HashMap<>();
+	private static final HashMap<Guild, AudioManager> audioManagers = new HashMap<>();
+	private static final HashMap<Guild, GuildMusicManager> musicManagers = new HashMap<>();
 
-	private static Logger logger = Main.getLogger();
+	private static final Logger logger = Main.getLogger();
 
 	public Bot(String token, String prefix, String ownerID, CommandListener listener) throws LoginException, IllegalArgumentException, InterruptedException
 	{
@@ -68,11 +68,6 @@ public class Bot
 	public static Message sendMessage(String message, MessageChannel channel)
 	{
 		return channel.sendMessage(message).complete();
-	}
-
-	public static boolean isInGuildVoiceChannel(Guild guild)
-	{
-		return audioManagers.containsKey(guild);
 	}
 
 	public static void addAudioChannel(Member member)

@@ -1,19 +1,19 @@
 package com.crimsonvalkyrie.discordbot.misc.music;
 
+import com.crimsonvalkyrie.discordbot.main.Bot;
+import com.crimsonvalkyrie.discordbot.main.Main;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
-import com.crimsonvalkyrie.discordbot.main.Bot;
-import com.crimsonvalkyrie.discordbot.main.Main;
 import org.apache.logging.log4j.Logger;
 
 public class SongQueueHandler implements AudioLoadResultHandler
 {
-	private CommandEvent event;
+	private final CommandEvent event;
 
-	private static Logger logger = Main.getLogger();
+	private static final Logger logger = Main.getLogger();
 
 	public SongQueueHandler(CommandEvent event)
 	{

@@ -1,10 +1,10 @@
 package com.crimsonvalkyrie.discordbot.commands.music;
 
-import com.jagrosh.jdautilities.command.CommandEvent;
 import com.crimsonvalkyrie.discordbot.main.Bot;
 import com.crimsonvalkyrie.discordbot.misc.music.GuildMusicManager;
+import com.jagrosh.jdautilities.command.CommandEvent;
 
-public class Join extends MusicCommand implements MusicCommandInterface
+public class Join extends MusicCommand
 {
 	public Join()
 	{
