@@ -1,5 +1,6 @@
 package com.crimsonvalkyrie.discordbot.main;
 
+import com.crimsonvalkyrie.discordbot.commands.Commands;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.command.CommandListener;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;

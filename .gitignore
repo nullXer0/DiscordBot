@@ -1,6 +1,6 @@
 .idea/
 .out/
-.target/
+target/
 .logs/
 .resources/META-INF/
 /Config.cfg

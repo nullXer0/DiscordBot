@@ -1,6 +1,13 @@
 package com.crimsonvalkyrie.discordbot.main;
 
+import com.crimsonvalkyrie.discordbot.chat.MessageFrame;
+import com.crimsonvalkyrie.discordbot.chat.MessagePanel;
+import com.crimsonvalkyrie.discordbot.menu.ChannelMenu;
+import com.crimsonvalkyrie.discordbot.menu.MainMenu;
+import com.crimsonvalkyrie.discordbot.menu.MenuBase;
+import com.crimsonvalkyrie.discordbot.misc.BotCommandListener;
 import com.crimsonvalkyrie.discordbot.misc.PanelListener;
+import com.crimsonvalkyrie.discordbot.misc.TrayListener;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.TextChannel;
 import org.apache.logging.log4j.LogManager;
