@@ -1,7 +1,8 @@
 package com.crimsonvalkyrie.discordbot.commands;
 
-import com.jagrosh.jdautilities.command.CommandClientBuilder;
+import com.crimsonvalkyrie.discordbot.commands.image.E621;
 import com.crimsonvalkyrie.discordbot.commands.owner.Shutdown;
+import com.jagrosh.jdautilities.command.CommandClientBuilder;
 
 public class Commands
 {
@@ -10,6 +11,9 @@ public class Commands
 		cmdClient.addCommands(
 
 				//Owner Commands
-				new Shutdown());
+				new Shutdown(),
+
+				//Image Commands
+				new E621());
 	}
 }
