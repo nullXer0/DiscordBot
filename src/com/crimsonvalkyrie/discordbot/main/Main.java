@@ -8,6 +8,7 @@ import com.crimsonvalkyrie.discordbot.menu.MenuBase;
 import com.crimsonvalkyrie.discordbot.misc.BotCommandListener;
 import com.crimsonvalkyrie.discordbot.misc.PanelListener;
 import com.crimsonvalkyrie.discordbot.misc.TrayListener;
+import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.TextChannel;
 import org.apache.logging.log4j.LogManager;
@@ -15,16 +16,8 @@ import org.apache.logging.log4j.Logger;
 
 import javax.imageio.ImageIO;
 import javax.security.auth.login.LoginException;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollBar;
-import java.awt.AWTException;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.MenuItem;
-import java.awt.PopupMenu;
-import java.awt.SystemTray;
-import java.awt.TrayIcon;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -100,6 +93,7 @@ public class Main
 		try
 		{
 			new Bot(token, prefix, ownerID, listener);
+			Bot.getJDA().getPresence().setGame(Game.watching("Furry Porn"));
 		}
 		catch(LoginException | InterruptedException e)
 		{
