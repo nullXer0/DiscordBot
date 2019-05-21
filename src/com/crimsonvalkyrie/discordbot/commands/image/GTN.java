@@ -8,11 +8,11 @@ public class GTN extends ImageCommand
 	{
 		super();
 		name = "gtn";
-		guildOnly = true;
 
 		help = "Posts a comic from GreenTeaNeko (NSFW)";
 
-		type = "?type=nsfw-gtn&nsfw=true";
+		type = "nsfw-gtn";
+		nsfw = true;
 	}
 
 	protected void execute(CommandEvent event)

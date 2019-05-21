@@ -4,3 +4,4 @@ target/
 .logs/
 .resources/META-INF/
 /Config.cfg
+/ZeroChan.cfg

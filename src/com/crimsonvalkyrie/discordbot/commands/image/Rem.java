@@ -6,7 +6,7 @@ public class Rem extends ImageCommand
 	{
 		super();
 		name = "rem";
-		type = "?type=rem";
+		type = "rem";
 		help = "Post a picture of rem from Re:Zero";
 	}
 }

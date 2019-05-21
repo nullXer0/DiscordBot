@@ -1,11 +1,12 @@
 package com.crimsonvalkyrie.discordbot.commands;
 
-import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.crimsonvalkyrie.discordbot.commands.image.GTN;
 import com.crimsonvalkyrie.discordbot.commands.image.Rem;
+import com.crimsonvalkyrie.discordbot.commands.image.Rem2;
 import com.crimsonvalkyrie.discordbot.commands.music.*;
 import com.crimsonvalkyrie.discordbot.commands.owner.EvalCmd;
 import com.crimsonvalkyrie.discordbot.commands.owner.Shutdown;
+import com.jagrosh.jdautilities.command.CommandClientBuilder;
 
 public class Commands
 {
@@ -20,6 +21,7 @@ public class Commands
 				//Image Commands
 				new Rem(),
 				new GTN(),
+				new Rem2(),
 
 				//Music Commands
 				new Join(),
