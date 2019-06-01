@@ -1,8 +1,13 @@
 package com.crimsonvalkyrie.discordbot.commands.music;
 
+import com.crimsonvalkyrie.discordbot.misc.music.GuildMusicManager;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
-import com.crimsonvalkyrie.discordbot.misc.music.GuildMusicManager;
+import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;
+import net.dv8tion.jda.core.EmbedBuilder;
+import net.dv8tion.jda.core.MessageBuilder;
+
+import java.awt.*;
 
 public class GetQueue extends MusicCommand
 {
@@ -18,25 +23,37 @@ public class GetQueue extends MusicCommand
 
 	public void requirementsMet(CommandEvent event, GuildMusicManager musicManager)
 	{
-		StringBuilder message = new StringBuilder();
+		MessageBuilder messageBuilder = new MessageBuilder();
+		EmbedBuilder embedBuilder = new EmbedBuilder().setColor(new Color(7212421));
+		StringBuilder upcomingString = new StringBuilder();
 
 		if(musicManager.player.getPlayingTrack() != null)
 		{
-			message.append("Current Song: '").append(musicManager.player.getPlayingTrack().getInfo().title).append('\'');
+			AudioTrackInfo trackInfo = musicManager.player.getPlayingTrack().getInfo();
+			embedBuilder.addField("Current Song", trackInfo.title + " - " + trackInfo.author, false);
 		}
 
 		Object[] queue = musicManager.scheduler.getQueueAsArray();
 
 		if(queue.length > 0)
 		{
-			message.append("Upcoming Songs:\n");
+			for(Object track : queue)
+			{
+				AudioTrackInfo trackInfo = ((AudioTrack) track).getInfo();
+				if(upcomingString.length() + trackInfo.title.length() + trackInfo.author.length() < 1014)
+				{
+					upcomingString.append("\n'").append(trackInfo.title).append(" - ").append(trackInfo.author).append('\'');
+				}
+				else
+				{
+					upcomingString.append("\n...");
+					break;
+				}
+			}
+			embedBuilder.addField("Upcoming Songs (" + queue.length + " in queue)", upcomingString.toString(), false);
 		}
 
-		for(Object track : queue)
-		{
-			message.append("\n'").append(((AudioTrack) track).getInfo().title).append('\'');
-		}
-
-		event.reply(message.toString());
+		messageBuilder.setEmbed(embedBuilder.build());
+		event.reply(messageBuilder.build());
 	}
 }

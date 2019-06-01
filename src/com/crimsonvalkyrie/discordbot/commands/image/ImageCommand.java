@@ -8,17 +8,17 @@ import kong.unirest.Unirest;
 import net.dv8tion.jda.core.entities.ChannelType;
 import org.json.JSONArray;
 
-public class ImageCommand extends Command
+class ImageCommand extends Command
 {
-	private GetRequest request = Unirest.get("https://rra.ram.moe/i/r").header(HeaderNames.USER_AGENT, "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0");
+	private final GetRequest request = Unirest.get("https://rra.ram.moe/i/r").header(HeaderNames.USER_AGENT, "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0");
 
 	/**
 	 * ?type=nsfw-gtn&nsfw=true
 	 */
-	protected String type = "";
-	protected boolean nsfw = false;
+	String type = "";
+	boolean nsfw = false;
 
-	public ImageCommand()
+	ImageCommand()
 	{
 		category = new Category("Image");
 		guildOnly = false;

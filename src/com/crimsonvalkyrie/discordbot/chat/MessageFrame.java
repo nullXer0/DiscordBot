@@ -10,15 +10,14 @@ import java.awt.event.ActionListener;
 
 public class MessageFrame extends JFrame implements ActionListener
 {
-	final JScrollPane scrollPane;
-	final JScrollBar scrollBar;
-	final MessagePanel messagePanel;
-	final JTextField textField;
+	private final JScrollBar scrollBar;
+	private final MessagePanel messagePanel;
+	private final JTextField textField;
 
 	public MessageFrame(MessagePanel mPanel)
 	{
 		messagePanel = mPanel;
-		scrollPane = new JScrollPane(messagePanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		JScrollPane scrollPane = new JScrollPane(messagePanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollBar = new JScrollBar(JScrollBar.VERTICAL);
 		scrollPane.setVerticalScrollBar(scrollBar);
 		textField = new JTextField();

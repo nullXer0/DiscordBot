@@ -6,10 +6,9 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.core.entities.VoiceChannel;
 
-public abstract class MusicCommand extends Command
+abstract class MusicCommand extends Command
 {
-	protected boolean ignoreUserChannelRequirements = false;
-	protected final boolean ignoreAllRequirements = false;
+	boolean ignoreUserChannelRequirements;
 
 	MusicCommand()
 	{
@@ -22,6 +21,7 @@ public abstract class MusicCommand extends Command
 		VoiceChannel userVoiceChannel = event.getMember().getVoiceState().getChannel();
 		VoiceChannel botVoiceChannel = event.getSelfMember().getVoiceState().getChannel();
 
+		boolean ignoreAllRequirements = false;
 		if(!ignoreAllRequirements && musicManager == null)
 		{
 			botNotInChannel(event);
@@ -40,20 +40,20 @@ public abstract class MusicCommand extends Command
 		}
 	}
 
-	public void botNotInChannel(CommandEvent event)
+	void botNotInChannel(CommandEvent event)
 	{
 		event.reply("I need to be in a channel to do that");
 	}
 
-	public void userNotInChannel(CommandEvent event)
+	private void userNotInChannel(CommandEvent event)
 	{
 		event.reply("You have to be in the same channel as the bot to do that");
 	}
 
-	public void userDoesNotShareChannel(CommandEvent event)
+	private void userDoesNotShareChannel(CommandEvent event)
 	{
 		event.reply("You have to be in the same channel as the bot to do that");
 	}
 
-	public abstract void requirementsMet(CommandEvent event, GuildMusicManager musicManager);
+	protected abstract void requirementsMet(CommandEvent event, GuildMusicManager musicManager);
 }

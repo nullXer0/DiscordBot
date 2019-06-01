@@ -14,9 +14,9 @@ import java.util.Random;
 
 public class Rem2 extends Command
 {
-	Logger logger = Main.getLogger();
+	private final Logger logger = Main.getLogger();
 
-	Random random = new Random();
+	private final Random random = new Random();
 
 	public Rem2()
 	{
@@ -44,7 +44,6 @@ public class Rem2 extends Command
 		int imageID;
 		// The information about the selected image
 		JSONArray imageResponse;
-		int randNum;
 
 		logger.info("{} requested a picture of rem", event.getAuthor().getAsTag());
 
