@@ -31,6 +31,7 @@ public class Commands
 				new Stop(),
 				new Next(),
 				new Volume(),
+				new SearchYT(),
 				new GetQueue(),
 				new ClearQueue(),
 				new RandomLocalSong());

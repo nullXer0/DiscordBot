@@ -9,6 +9,7 @@ import net.dv8tion.jda.core.entities.VoiceChannel;
 abstract class MusicCommand extends Command
 {
 	boolean ignoreUserChannelRequirements;
+	boolean ignoreAllRequirements;
 
 	MusicCommand()
 	{
@@ -21,16 +22,15 @@ abstract class MusicCommand extends Command
 		VoiceChannel userVoiceChannel = event.getMember().getVoiceState().getChannel();
 		VoiceChannel botVoiceChannel = event.getSelfMember().getVoiceState().getChannel();
 
-		boolean ignoreAllRequirements = false;
 		if(!ignoreAllRequirements && musicManager == null)
 		{
 			botNotInChannel(event);
 		}
-		else if((!ignoreAllRequirements || !ignoreUserChannelRequirements) && userVoiceChannel == null)
+		else if(!ignoreAllRequirements && !ignoreUserChannelRequirements && userVoiceChannel == null)
 		{
 			userNotInChannel(event);
 		}
-		else if((!ignoreAllRequirements || !ignoreUserChannelRequirements) && userVoiceChannel != botVoiceChannel)
+		else if(!ignoreAllRequirements && !ignoreUserChannelRequirements && userVoiceChannel != botVoiceChannel)
 		{
 			userDoesNotShareChannel(event);
 		}

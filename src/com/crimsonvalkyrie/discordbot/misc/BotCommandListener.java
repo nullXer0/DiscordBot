@@ -8,17 +8,13 @@ import com.jagrosh.jdautilities.command.CommandListener;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("unused")
 public class BotCommandListener implements CommandListener
 {
 	private static final List<MessageFrame> frames = new ArrayList<>();
-
-	private static final Logger logger = Main.getLogger();
 
 	public void add(MessageFrame panel)
 	{
@@ -29,11 +25,11 @@ public class BotCommandListener implements CommandListener
 	{
 		if(frames.remove(panel))
 		{
-			logger.debug("Successfully removed Message Panel");
+			Main.getLogger().debug("Successfully removed Message Panel");
 		}
 		else
 		{
-			logger.debug("Failed to remove Message Panel");
+			Main.getLogger().debug("Failed to remove Message Panel");
 		}
 	}
 
@@ -51,15 +47,15 @@ public class BotCommandListener implements CommandListener
 
 	public void onNonCommandMessage(MessageReceivedEvent event)
 	{
-		logger.debug("Processing Message");
+		Main.getLogger().debug("Processing Message");
 		Message message = event.getMessage();
 		TextChannel channel = message.getTextChannel();
 		for(MessageFrame frame : frames)
 		{
-			logger.debug("Checking");
+			Main.getLogger().debug("Checking");
 			if(channel == frame.getMessagePanel().getTextChannel())
 			{
-				logger.debug("Adding message");
+				Main.getLogger().debug("Adding message");
 				frame.addMessage(message);
 				break;
 			}
