@@ -5,3 +5,4 @@ target/
 .resources/META-INF/
 /Config.cfg
 /ZeroChan.cfg
+*.iml
