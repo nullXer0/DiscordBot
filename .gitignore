@@ -3,4 +3,5 @@
 target/
 .logs/
 .resources/META-INF/
-/Config.cfg
+Config.cfg
+*.iml
