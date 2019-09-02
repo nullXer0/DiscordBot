@@ -1,0 +1,9 @@
+/.idea/
+/.out/
+/target/
+/classes/
+/logs/
+/resources/META-INF/
+/Config.cfg
+/ZeroChan.cfg
+DiscordBot.iml
