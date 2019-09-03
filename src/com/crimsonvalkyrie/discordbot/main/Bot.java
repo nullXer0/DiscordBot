@@ -21,6 +21,12 @@ public class Bot
 {
 	private static JDA jda;
 
+	private static AudioPlayerManager playerManager;
+	private static final HashMap<Guild, AudioManager> audioManagers = new HashMap<>();
+	private static final HashMap<Guild, GuildMusicManager> musicManagers = new HashMap<>();
+
+	private static final Logger logger = Main.getLogger();
+
 	public Bot(String token, String prefix, String ownerID, CommandListener listener) throws LoginException, IllegalArgumentException, InterruptedException
 	{
 		CommandClientBuilder cmdClient = new CommandClientBuilder().setOwnerId(ownerID)
@@ -32,7 +38,7 @@ public class Bot
 		}
 		else
 		{
-			Main.getLogger().error("No Listener Provided");
+			logger.error("No Listener Provided");
 		}
 
 		playerManager = new DefaultAudioPlayerManager();

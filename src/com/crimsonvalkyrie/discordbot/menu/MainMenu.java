@@ -19,6 +19,8 @@ public class MainMenu extends MenuBase
 
 	private final HashMap<MenuButton, Guild> guilds = new HashMap<>();
 
+	private static final Logger logger = Main.getLogger();
+
 	public MainMenu(List<Guild> guilds)
 	{
 		super();
@@ -45,7 +47,7 @@ public class MainMenu extends MenuBase
 			}
 			else
 			{
-				Main.getLogger().warn("{} does not have an icon", guild.getName());
+				logger.warn("{} does not have an icon", guild.getName());
 			}
 			addButton(tempButton);
 			this.guilds.put(tempButton, guild);
