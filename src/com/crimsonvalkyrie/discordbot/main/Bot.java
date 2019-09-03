@@ -21,10 +21,6 @@ public class Bot
 {
 	private static JDA jda;
 
-	private static AudioPlayerManager playerManager;
-	private static final HashMap<Guild, AudioManager> audioManagers = new HashMap<>();
-	private static final HashMap<Guild, GuildMusicManager> musicManagers = new HashMap<>();
-
 	public Bot(String token, String prefix, String ownerID, CommandListener listener) throws LoginException, IllegalArgumentException, InterruptedException
 	{
 		CommandClientBuilder cmdClient = new CommandClientBuilder().setOwnerId(ownerID)
