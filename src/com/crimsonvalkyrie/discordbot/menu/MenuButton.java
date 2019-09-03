@@ -4,14 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-class MenuButton extends JPanel
+public class MenuButton extends JPanel
 {
 	private final JLabel label;
 	private BufferedImage originalImage;
 
 	private boolean hasImage = false;
 
-	private MenuButton()
+	public MenuButton()
 	{
 		super();
 		setLayout(null);
@@ -19,25 +19,24 @@ class MenuButton extends JPanel
 		add(label);
 	}
 
-	MenuButton(Color bg)
+	public MenuButton(Color bg)
 	{
 		this();
 		setBackground(bg);
 	}
 
-	@SuppressWarnings("unused")
 	public MenuButton(Color bg, BufferedImage image)
 	{
 		this(bg);
 		setImage(image);
 	}
 
-	void setText(String text)
+	public void setText(String text)
 	{
 		label.setText(text);
 	}
 
-	void setImage(BufferedImage image)
+	public void setImage(BufferedImage image)
 	{
 		originalImage = image;
 		label.setIcon(new ImageIcon(originalImage.getScaledInstance(label.getHeight() - 4, label.getHeight() - 4, Image.SCALE_SMOOTH)));
@@ -55,7 +54,7 @@ class MenuButton extends JPanel
 		}
 	}
 
-	private void resizeImage()
+	public void resizeImage()
 	{
 		if(label.getIcon().getIconHeight() != label.getHeight() - 4)
 		{
@@ -63,12 +62,12 @@ class MenuButton extends JPanel
 		}
 	}
 
-	void setAlignment(int alignment)
+	public void setAlignment(int alignment)
 	{
 		label.setHorizontalAlignment(alignment);
 	}
 
-	void setLabelFont(Font font)
+	public void setLabelFont(Font font)
 	{
 		label.setFont(font);
 	}
