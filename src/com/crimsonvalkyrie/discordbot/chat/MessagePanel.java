@@ -10,6 +10,7 @@ import javax.swing.*;
 
 public class MessagePanel extends JPanel
 {
+
 	private final MessageBox[] messages = new MessageBox[50];
 	private final TextChannel channel;
 
@@ -27,7 +28,7 @@ public class MessagePanel extends JPanel
 		return channel;
 	}
 
-	public void addMessage(Message message)
+	void addMessage(Message message)
 	{
 		removeAll();
 		if(messages.length - 1 >= 0) System.arraycopy(messages, 0, messages, 1, messages.length - 1);
