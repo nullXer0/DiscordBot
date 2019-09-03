@@ -14,7 +14,7 @@ import java.util.List;
 
 public class MenuBase extends JScrollPane implements ComponentListener, MouseListener
 {
-	protected final JPanel panel = new JPanel();
+	private final JPanel panel = new JPanel();
 
 	private final List<MenuButton> buttons = new ArrayList<>();
 
@@ -22,7 +22,7 @@ public class MenuBase extends JScrollPane implements ComponentListener, MouseLis
 
 	private static final Logger logger = Main.getLogger();
 
-	public MenuBase()
+	MenuBase()
 	{
 		super();
 		setViewportView(panel);
@@ -33,25 +33,26 @@ public class MenuBase extends JScrollPane implements ComponentListener, MouseLis
 		panel.setBackground(Color.black);
 	}
 
-	public void addButton(MenuButton button)
+	void addButton(MenuButton button)
 	{
 		buttons.add(button);
 		panel.add(button);
 		button.addMouseListener(this);
 	}
 
+	@SuppressWarnings("unused")
 	public void removeButton(MenuButton button)
 	{
 		buttons.remove(button);
 		panel.remove(button);
 	}
 
-	public int getButtonHeight()
+	private int getButtonHeight()
 	{
 		return 4 + (panel.getWidth() / 4 - 4);
 	}
 
-	public int getTotalHeight()
+	private int getTotalHeight()
 	{
 		return 4 + ((panel.getWidth() / 4 - 4) * buttons.size());
 	}
@@ -94,6 +95,7 @@ public class MenuBase extends JScrollPane implements ComponentListener, MouseLis
 	{
 		isClick = true;
 		((Component) e.getSource()).setSize(panel.getWidth() - 12, panel.getWidth() / 4 - 12);
+		//noinspection SuspiciousMethodCalls
 		((Component) e.getSource()).setLocation(6, 6 + ((panel.getWidth() / 4 - 4) * buttons.indexOf(e.getSource())));
 	}
 
@@ -104,10 +106,11 @@ public class MenuBase extends JScrollPane implements ComponentListener, MouseLis
 			onClick(e);
 		}
 		((Component) e.getSource()).setSize(panel.getWidth() - 8, panel.getWidth() / 4 - 8);
+		//noinspection SuspiciousMethodCalls
 		((Component) e.getSource()).setLocation(4, 4 + ((panel.getWidth() / 4 - 4) * buttons.indexOf(e.getSource())));
 	}
 
-	protected void onClick(MouseEvent e)
+	void onClick(MouseEvent e)
 	{
 		isClick = false;
 	}

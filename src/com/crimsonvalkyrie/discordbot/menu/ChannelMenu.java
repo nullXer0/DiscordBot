@@ -11,9 +11,9 @@ import java.util.List;
 
 public class ChannelMenu extends MenuBase
 {
-	final HashMap<MenuButton, TextChannel> channels = new HashMap<>();
+	private final HashMap<MenuButton, TextChannel> channels = new HashMap<>();
 
-	final MenuButton backButton;
+	private final MenuButton backButton;
 
 	public ChannelMenu(List<TextChannel> channels)
 	{
@@ -41,6 +41,7 @@ public class ChannelMenu extends MenuBase
 		}
 		else
 		{
+			//noinspection SuspiciousMethodCalls
 			Main.OpenChat(channels.get(e.getSource()));
 		}
 		super.onClick(e);

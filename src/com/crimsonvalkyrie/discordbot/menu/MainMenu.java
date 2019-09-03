@@ -17,7 +17,7 @@ public class MainMenu extends MenuBase
 {
 	private static final Font FONT = new Font("Dialog", Font.ITALIC, 24);
 
-	final HashMap<MenuButton, Guild> guilds = new HashMap<>();
+	private final HashMap<MenuButton, Guild> guilds = new HashMap<>();
 
 	private static final Logger logger = Main.getLogger();
 
@@ -56,6 +56,7 @@ public class MainMenu extends MenuBase
 
 	protected void onClick(MouseEvent e)
 	{
+		//noinspection SuspiciousMethodCalls
 		Main.selectGuild(guilds.get(e.getSource()));
 		super.onClick(e);
 	}

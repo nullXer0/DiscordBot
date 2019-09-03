@@ -18,7 +18,7 @@ public class Bot
 
 	private static final Logger logger = Main.getLogger();
 
-	public Bot(String token, String prefix, String ownerID, CommandListener listener) throws LoginException, IllegalArgumentException, InterruptedException
+	Bot(String token, String prefix, String ownerID, CommandListener listener) throws LoginException, IllegalArgumentException, InterruptedException
 	{
 		CommandClientBuilder cmdClient = new CommandClientBuilder().setOwnerId(ownerID)
 				.setPrefix(prefix)
@@ -42,7 +42,7 @@ public class Bot
 		return jda;
 	}
 
-	public static String getName()
+	static String getName()
 	{
 		return jda.getSelfUser().getName();
 	}

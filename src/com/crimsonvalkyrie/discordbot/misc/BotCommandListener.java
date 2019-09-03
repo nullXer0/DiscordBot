@@ -24,6 +24,7 @@ public class BotCommandListener implements CommandListener
 		frames.add(panel);
 	}
 
+	@SuppressWarnings("unused")
 	public void remove(MessageFrame panel)
 	{
 		if(frames.remove(panel))
