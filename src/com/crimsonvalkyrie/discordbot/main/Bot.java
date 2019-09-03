@@ -16,8 +16,6 @@ public class Bot
 {
 	private static JDA jda;
 
-	private static final Logger logger = Main.getLogger();
-
 	public Bot(String token, String prefix, String ownerID, CommandListener listener) throws LoginException, IllegalArgumentException, InterruptedException
 	{
 		CommandClientBuilder cmdClient = new CommandClientBuilder().setOwnerId(ownerID)
@@ -29,7 +27,7 @@ public class Bot
 		}
 		else
 		{
-			logger.error("No Listener Provided");
+			Main.getLogger().error("No Listener Provided");
 		}
 
 		Commands.initialize(cmdClient);
