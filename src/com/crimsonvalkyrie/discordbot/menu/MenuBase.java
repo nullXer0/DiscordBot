@@ -20,8 +20,6 @@ public class MenuBase extends JScrollPane implements ComponentListener, MouseLis
 
 	private boolean isClick;
 
-	private static final Logger logger = Main.getLogger();
-
 	MenuBase()
 	{
 		super();
@@ -59,7 +57,7 @@ public class MenuBase extends JScrollPane implements ComponentListener, MouseLis
 	// TODO: figure out how to fix maximizing
 	public void updatePanel(int width, int height)
 	{
-		logger.debug("Updating panel");
+		Main.getLogger().debug("Updating panel");
 		JPanel menuPanel = (JPanel) getViewport().getView();
 		setSize(width, height);
 		menuPanel.setPreferredSize(new Dimension(getWidth(), getTotalHeight()));
@@ -82,7 +80,7 @@ public class MenuBase extends JScrollPane implements ComponentListener, MouseLis
 
 	public void mouseClicked(MouseEvent e)
 	{
-		logger.debug("Clicked");
+		Main.getLogger().debug("Clicked");
 	}
 
 	public void mouseExited(MouseEvent e)
