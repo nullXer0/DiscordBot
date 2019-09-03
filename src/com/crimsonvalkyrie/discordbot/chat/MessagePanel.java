@@ -10,6 +10,7 @@ import javax.swing.*;
 
 public class MessagePanel extends JPanel
 {
+
 	private final MessageBox[] messages = new MessageBox[50];
 	private final TextChannel channel;
 

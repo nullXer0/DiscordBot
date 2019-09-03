@@ -4,11 +4,11 @@ import net.dv8tion.jda.core.entities.Message;
 
 import javax.swing.*;
 
-public class MessageBox extends JTextArea
+class MessageBox extends JTextArea
 {
 	private Message message;
 
-	MessageBox()
+	private MessageBox()
 	{
 		super();
 		setEditable(false);
