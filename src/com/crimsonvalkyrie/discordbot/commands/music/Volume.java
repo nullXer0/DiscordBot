@@ -21,7 +21,7 @@ public class Volume extends MusicCommand
 		try
 		{
 			int newVolume = Integer.valueOf(event.getArgs());
-			player.setVolume(Math.min(newVolume, 100));
+			player.setVolume(Math.min(newVolume, event.isOwner()?1000:100));
 			event.reply("Changed Volume from " + oldVolume + "% to " + player.getVolume() + "%");
 		}
 		catch(NumberFormatException e)
