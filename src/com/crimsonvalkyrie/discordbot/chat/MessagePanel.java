@@ -1,7 +1,7 @@
 package com.crimsonvalkyrie.discordbot.chat;
 
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.TextChannel;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.TextChannel;
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.LC;
 import net.miginfocom.swing.MigLayout;

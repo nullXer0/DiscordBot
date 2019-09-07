@@ -1,7 +1,7 @@
 package com.crimsonvalkyrie.discordbot.menu;
 
 import com.crimsonvalkyrie.discordbot.main.Main;
-import net.dv8tion.jda.core.entities.Guild;
+import net.dv8tion.jda.api.entities.Guild;
 import org.apache.logging.log4j.Logger;
 
 import javax.imageio.ImageIO;

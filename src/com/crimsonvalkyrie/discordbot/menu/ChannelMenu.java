@@ -1,7 +1,7 @@
 package com.crimsonvalkyrie.discordbot.menu;
 
 import com.crimsonvalkyrie.discordbot.main.Main;
-import net.dv8tion.jda.core.entities.TextChannel;
+import net.dv8tion.jda.api.entities.TextChannel;
 
 import javax.swing.*;
 import java.awt.*;

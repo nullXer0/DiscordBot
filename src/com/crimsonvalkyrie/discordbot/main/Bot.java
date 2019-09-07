@@ -7,10 +7,11 @@ import com.jagrosh.jdautilities.command.CommandListener;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
-import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.JDABuilder;
-import net.dv8tion.jda.core.entities.*;
+import net.dv8tion.jda.api.AccountType;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.core.managers.AudioManager;
 import org.apache.logging.log4j.Logger;
 
@@ -47,7 +48,7 @@ public class Bot
 
 		Commands.initialize(cmdClient);
 
-		jda = new JDABuilder(AccountType.BOT).setToken(token).addEventListener(cmdClient.build()).build().awaitReady();
+		jda = new JDABuilder(AccountType.BOT).setToken(token).addEventListeners(cmdClient.build()).build().awaitReady();
 	}
 
 	static JDA getJDA()
