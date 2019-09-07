@@ -26,8 +26,6 @@ public class Rem2 extends Command
 
 		category = new Category("Image");
 
-		// Log into zerochan
-		Unirest.get("https://www.zerochan.net/login?name=" + ZeroChanAuth.username + "&password=" + ZeroChanAuth.password + "&login").asEmpty();
 	}
 
 	protected void execute(CommandEvent event)
@@ -49,7 +47,7 @@ public class Rem2 extends Command
 
 		// Request page in rem images in a random order at a random page
 		request = Unirest.get("https://www.zerochan.net/Rem+(Re%3AZero)%2CSolo,-Not+Safe+For+Work/")
-				.queryString("s", "random").queryString("json", "").queryString("p", random.nextInt(100) + 1);
+				.queryString("s", "random").queryString("json", "").queryString("p", random.nextInt(50) + 1);
 
 		// Get response from zerochan
 		response = request.asString();
@@ -73,21 +71,5 @@ public class Rem2 extends Command
 
 		imageResponse = Unirest.get("https://www.zerochan.net/" + imageID).queryString("json", "").asJson().getBody().getArray();
 		event.reply((String) imageResponse.query("/0/full"));
-	}
-
-	public static class ZeroChanAuth
-	{
-		private static String username;
-		private static String password;
-
-		public static void setUser(String username)
-		{
-			ZeroChanAuth.username = username;
-		}
-
-		public static void setPass(String password)
-		{
-			ZeroChanAuth.password = password;
-		}
 	}
 }

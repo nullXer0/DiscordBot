@@ -148,20 +148,6 @@ public class Main
 				config.setProperty("prefix", "!");
 				logger.info("Config file created, please provide token and restart program");
 			}
-
-			if(!zeroChanConfig.createNewFile())
-			{
-				config.load(new FileInputStream(new File("ZeroChan.cfg")));
-				Rem2.ZeroChanAuth.setUser(config.getProperty("username"));
-				Rem2.ZeroChanAuth.setPass(config.getProperty("password"));
-
-			}
-			else
-			{
-				config.load(new FileInputStream(new File("ZeroChan.cfg")));
-				config.setProperty("username", "<Username>");
-				config.setProperty("password", "<Password>");
-			}
 		}
 		catch(IOException e)
 		{
