@@ -2,7 +2,6 @@ package com.crimsonvalkyrie.discordbot.main;
 
 import com.crimsonvalkyrie.discordbot.chat.MessageFrame;
 import com.crimsonvalkyrie.discordbot.chat.MessagePanel;
-import com.crimsonvalkyrie.discordbot.commands.image.Rem2;
 import com.crimsonvalkyrie.discordbot.menu.ChannelMenu;
 import com.crimsonvalkyrie.discordbot.menu.MainMenu;
 import com.crimsonvalkyrie.discordbot.menu.MenuBase;
@@ -109,7 +108,6 @@ public class Main
 	private static void initConfig()
 	{
 		File configFile = new File("Config.cfg");
-		File zeroChanConfig = new File("ZeroChan.cfg");
 		try
 		{
 			if(!configFile.createNewFile())
