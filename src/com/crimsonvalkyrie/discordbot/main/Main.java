@@ -68,7 +68,7 @@ public class Main
 
 	private static final Logger logger = LogManager.getLogger("ValkyrLogger");
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws LoginException, InterruptedException
 	{
 		if(args.length > 0 && args[0].equals("nogui"))
 		{
@@ -77,7 +77,7 @@ public class Main
 		new Main();
 	}
 
-	private Main()
+	private Main() throws LoginException, InterruptedException
 	{
 		if(!nogui)
 		{
@@ -93,18 +93,11 @@ public class Main
 		init();
 	}
 
-	private static void init()
+	private static void init() throws LoginException, InterruptedException
 	{
 		initConfig();
 
-		try
-		{
-			new Bot(token, prefix, ownerID, listener);
-		}
-		catch(LoginException | InterruptedException e)
-		{
-			e.printStackTrace();
-		}
+		new Bot(token, prefix, ownerID, listener);
 
 		if(!nogui)
 		{
