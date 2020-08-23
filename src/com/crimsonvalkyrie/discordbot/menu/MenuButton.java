@@ -62,9 +62,9 @@ class MenuButton extends JPanel
 		}
 	}
 
-	void setAlignment(int alignment)
+	void setAlignment()
 	{
-		label.setHorizontalAlignment(alignment);
+		label.setHorizontalAlignment(SwingConstants.CENTER);
 	}
 
 	void setLabelFont(Font font)

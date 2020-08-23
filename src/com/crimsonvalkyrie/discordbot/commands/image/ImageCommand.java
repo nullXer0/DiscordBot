@@ -5,7 +5,7 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 import kong.unirest.GetRequest;
 import kong.unirest.HeaderNames;
 import kong.unirest.Unirest;
-import net.dv8tion.jda.core.entities.ChannelType;
+import net.dv8tion.jda.api.entities.ChannelType;
 import org.json.JSONArray;
 
 class ImageCommand extends Command
